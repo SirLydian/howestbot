@@ -31,6 +31,43 @@
          }
 
          */
+        
+        //bot permission change
+        bot.commands.killCommand.rank = 'manager';
+        
+        //roulette 
+        setInterval(function(){
+    	    if (basicBot.status) {
+    		    bot.room.roulette.startRoulette();
+    	    }
+        }, 3600000);
+        
+        //extra commands
+        bot.commands.nielsCommand = {
+        command: 'niels',
+        rank: 'user',
+        type: 'exact',
+        functionality: function(chat, cmd){
+        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
+		         else{
+			         API.sendChat("Niels is awesome!");
+		         }
+	         }
+        }
+         
+        bot.commands.tastyplugCommand = {
+        command: 'tastyplug',
+        rank: 'user',
+        type: 'exact',
+        functionality: function(chat, cmd){
+        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
+		         else{
+			         API.sendChat("Use TastyPlug to autowoot and have custom emotes, inline images and many more features! https://fungustime.pw/tastyplug/");
+		         }
+	         }
+        }
 
         bot.commands.baconCommand = {
             command: 'bacon',  //The command to be called. With the standard command literal this would be: !bacon
@@ -53,24 +90,24 @@
     //Change the bots default settings and make sure they are loaded on launch
 
     localStorage.setItem("basicBotsettings", JSON.stringify({
-        botName: "basicBot",
+        botName: "HowestBOT",
         language: "english",
-        chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
-        maximumAfk: 120,
+        chatLink: "https://rawgit.com/SirLydian/basicBot/master/lang/en.json",
+        maximumAfk: 60,
         afkRemoval: true,
-        maximumDc: 60,
+        maximumDc: 120,
         bouncerPlus: true,
         lockdownEnabled: false,
-        lockGuard: false,
+        lockGuard: true,
         maximumLocktime: 10,
         cycleGuard: true,
         maximumCycletime: 10,
         timeGuard: true,
-        maximumSongLength: 10,
+        maximumSongLength: 7,
         autodisable: true,
-        commandCooldown: 30,
+        commandCooldown: 0,
         usercommandsEnabled: true,
-        lockskipPosition: 3,
+        lockskipPosition: 2,
         lockskipReasons: [
             ["theme", "This song does not fit the room theme. "],
             ["op", "This song is on the OP list. "],
@@ -93,10 +130,10 @@
         themeLink: null,
         fbLink: null,
         youtubeLink: null,
-        website: null,
+        website: "http://howest.be/",
         intervalMessages: [],
         messageInterval: 5,
-        songstats: true,
+        songstats: false,
         commandLiteral: "!",
         blacklists: {
             NSFW: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleNSFWlist.json",
