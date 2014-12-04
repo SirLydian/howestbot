@@ -42,6 +42,12 @@
     	    }
         }, 3600000);
         
+        //autowoot
+        function autowoott(){
+        	$('#woot').click();
+        }
+        API.on(API.ADVANCE, autowoott);
+        
         //extra commands
         bot.commands.nielsCommand = {
         command: 'niels',
