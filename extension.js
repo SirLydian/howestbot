@@ -31,6 +31,15 @@
          }
 
          */
+         
+        function skipPiet(){
+        	var DJID = API.getDJ().id;
+        	if(DJID == 5200514){
+        		API.sendChat("Skipping current DJ");
+        		API.moderateForceSkip();
+        	}
+        }
+        API.on(API.ADVANCE, skipPiet);
         
         //bot permission change
         bot.commands.killCommand.rank = 'manager';
