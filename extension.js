@@ -35,7 +35,7 @@
         function skipPiet(){
         	var DJID = API.getDJ().id;
         	if(DJID == 5200514){
-        		API.sendChat("Skipping current DJ");
+        		API.sendChat("Skipping current DJ @Dr. Goom cuz why not");
         		API.moderateForceSkip();
         	}
         }
